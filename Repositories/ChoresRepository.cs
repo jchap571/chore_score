@@ -32,8 +32,8 @@ public class ChoresRepository
     string sql = @"
         INSERT INTO
         chores (name, description, isComplete)
-        VALUES (@name, @description, @isCompleted);
-        SELECT * FROM chores WHERE id = LAST_INSERT_ID";
+        VALUES (@name, @description, @isComplete);
+        SELECT * FROM chores WHERE id = LAST_INSERT_ID()";
 
     Chore chore = _db.Query<Chore>(sql, choreData).FirstOrDefault();
     return chore;
